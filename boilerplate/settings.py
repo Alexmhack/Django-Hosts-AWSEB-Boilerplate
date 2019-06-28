@@ -25,7 +25,7 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL')]
 
 
 # Application definition
