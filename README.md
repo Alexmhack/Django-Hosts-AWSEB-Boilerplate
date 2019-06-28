@@ -1,7 +1,10 @@
 # Django-Hosts-AWSEB-Boilerplate
 Using Django backend with django-hosts and deploying using AWS ElasticBeanstalk
 
-Follow the steps from this [repo](https://github.com/Alexmhack/Django-ElasticBeanstalk-Boilerplate). After finishing those steps continue from below.
+What **django-hosts** does is allows you to use subdomains in your django website for example
+a seperate subdomain for the app *help* like *help.example.com* or *blog.example.com*. You can have as many subdomains as your apps in your django project.
+
+Follow the steps from this [repo](https://github.com/Alexmhack/Django-ElasticBeanstalk-Boilerplate) for launching elastic beanstalk environemnt inside a VPC. After finishing those steps continue from below.
 
 I am uinsg [pipenv](https://docs.pipenv.org/en/latest/) for my virtualenv you are free to use of your choice, active pipenv virtualenv
 by running `pipenv shell`.
