@@ -25,7 +25,8 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'), 'djapp']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'), 'www.djapp.com',
+    'help.djapp.com', 'blog.djapp.com']
 
 
 # Application definition
@@ -64,6 +65,8 @@ ROOT_HOSTCONF = 'boilerplate.hosts'
 
 DEFAULT_HOST = 'www'
 
+PARENT_HOST = 'djapp.com:8000'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,6 +79,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'django_hosts.templatetags.hosts_override',
+            ]
         },
     },
 ]
@@ -86,23 +92,23 @@ WSGI_APPLICATION = 'boilerplate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        'PORT': os.getenv('DATABASE_PORT')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DATABASE_NAME'),
+#         'USER': os.getenv('DATABASE_USER'),
+#         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+#         'HOST': os.getenv('DATABASE_HOST'),
+#         'PORT': os.getenv('DATABASE_PORT')
+#     }
+# }
 
 
 # Password validation
