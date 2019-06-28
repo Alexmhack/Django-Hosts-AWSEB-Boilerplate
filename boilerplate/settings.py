@@ -26,7 +26,8 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'),
-    'help.' + os.getenv('INSTANCE_URL'), 'blog.' + os.getenv('INSTANCE_URL')]
+    'help.' + os.getenv('INSTANCE_URL'), 'blog.' + os.getenv('INSTANCE_URL'),
+    'www.' + os.getenv('INSTANCE_URL')]
 
 
 # Application definition
