@@ -91,5 +91,4 @@ by running `pipenv shell`.
 11. Run eb deploy and test out the site, if you have your domain available, attach it to your environment and enjoy the use of subdomains with your domain.
 
 **NOTE:** I have tested this project in my local machine by editing the **etc/hosts** folder and 
-pointing my localhost to `djapp.com`. In production you need a custom domain, ElasticBeanstalk 
-environment urls won't work in this case.
+pointing my localhost to `djapp.com`. You can do the same with the elastic beanstalk env url by adding the subdomains to the `ALLOWED_HOSTS` appended by the subdomain for example `blog.elastic_benstalk_url.com`
