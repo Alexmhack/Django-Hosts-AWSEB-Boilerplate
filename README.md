@@ -86,5 +86,10 @@ by running `pipenv shell`.
 9. Run `eb config` if not to change the `WSGIPath` to our `boilerplate/settings.py` file.
 
 10. Add some templates and use the django-hosts template tags like the templates in this repo.
+	**To use the urls don't forget to add `PARENT_HOST` setting as explained [here](https://django-hosts.readthedocs.io/en/latest/templatetags.html#fully-qualified-domain-names-fqdn)**
 
 11. Run eb deploy and test out the site, if you have your domain available, attach it to your environment and enjoy the use of subdomains with your domain.
+
+**NOTE:** I have tested this project in my local machine by editing the **etc/hosts** folder and 
+pointing my localhost to `djapp.com`. In production you need a custom domain, ElasticBeanstalk 
+environment urls won't work in this case.
