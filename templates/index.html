@@ -18,15 +18,15 @@
     	<br><br>
 
     	<h4>Django-hosts template tag urls</h4>
-    	<a href="{% host_url 'index' host 'www' %}">Home</a><br>
+    	<a href="{% url 'index' %}">Home</a><br>
     	<a href="{% host_url 'home' host 'blog' %}">Blog</a><br>
     	<a href="{% host_url 'home' host 'help' %}">Help</a><br>
 
     	<br>
     	<br>
     	<h4>Django template tag urls</h4>
-			<a href="{% url 'blog:home' host 'blog' %}">Blog</a>
-			<a href="{% url 'help:home' host 'help' %}">Help</a>
+			{# <a href="{% url 'blog:home' host 'blog' %}">Blog</a> #}
+			{# <a href="{% url 'help:home' host 'help' %}">Help</a> #}
 
   	</div>
 
