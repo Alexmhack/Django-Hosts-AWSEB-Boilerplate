@@ -25,7 +25,7 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL')]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'), 'djapp']
 
 
 # Application definition
@@ -37,9 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_hosts',
+
+    'blog',
+    'help',
 ]
 
 MIDDLEWARE = [
+    'django_hosts.middleware.HostsRequestMiddleware',  # <- djnago-hosts
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -47,14 +54,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django_hosts.middleware.HostsResponseMiddleware',  # <- djnago-hosts
 ]
 
 ROOT_URLCONF = 'boilerplate.urls'
 
+ROOT_HOSTCONF = 'boilerplate.hosts'
+
+DEFAULT_HOST = 'www'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
