@@ -24,9 +24,12 @@
 
     	<br>
     	<br>
-    	<h4>Django template tag urls</h4>
-			<a href="{% url 'blog:home' host 'blog' %}">Blog</a>
-			<a href="{% url 'help:home' host 'help' %}">Help</a>
+    	<h4>Blog urls</h4>
+      <a href="{% host_url 'home' host 'blog' %}">home</a><br>
+      <a href="{% host_url 'about' host 'blog' %}">about</a><br>
+      <a href="{% host_url 'list' host 'blog' %}">list</a><br>
+      <a href="{% host_url 'detail' host 'blog' %}">detail</a><br>
+      <a href="{% host_url 'new' host 'blog' %}">new</a><br>
 
   	</div>
 
