@@ -25,8 +25,8 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'), 'www.djapp.com',
-    'help.djapp.com', 'blog.djapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'),
+    'help.' + os.getenv('INSTANCE_URL'), 'blog.' + os.getenv('INSTANCE_URL')]
 
 
 # Application definition
@@ -65,7 +65,7 @@ ROOT_HOSTCONF = 'boilerplate.hosts'
 
 DEFAULT_HOST = 'www'
 
-PARENT_HOST = 'djapp.com:8000'
+PARENT_HOST = 'testenv.m2xbryjpgr.ap-south-1.elasticbeanstalk.com'
 
 TEMPLATES = [
     {
