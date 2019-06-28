@@ -65,7 +65,7 @@ ROOT_HOSTCONF = 'boilerplate.hosts'
 
 DEFAULT_HOST = 'www'
 
-PARENT_HOST = 'testenv.m2xbryjpgr.ap-south-1.elasticbeanstalk.com'
+PARENT_HOST = os.getenv('INSTANCE_URL')
 
 TEMPLATES = [
     {
