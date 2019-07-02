@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from django.urls import reverse_lazy
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +31,7 @@ SECRET_KEY = '^0(2ti=&hu=e(s@&t@9r61*hvczyfbcw)t1r10gem0$9ng)ika'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.getenv('INSTANCE_URL'),
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.djapp.com', os.getenv('INSTANCE_URL'),
     'help.' + os.getenv('INSTANCE_URL'), 'blog.' + os.getenv('INSTANCE_URL'),
     'www.' + os.getenv('INSTANCE_URL')]
 
@@ -39,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'django_hosts',
 
@@ -66,7 +73,8 @@ ROOT_HOSTCONF = 'boilerplate.hosts'
 
 DEFAULT_HOST = 'www'
 
-PARENT_HOST = os.getenv('INSTANCE_URL')
+PARENT_HOST = 'djapp.com:8000'
+# PARENT_HOST = os.getenv('INSTANCE_URL')
 
 TEMPLATES = [
     {
@@ -93,23 +101,23 @@ WSGI_APPLICATION = 'boilerplate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        'PORT': os.getenv('DATABASE_PORT')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DATABASE_NAME'),
+#         'USER': os.getenv('DATABASE_USER'),
+#         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+#         'HOST': os.getenv('DATABASE_HOST'),
+#         'PORT': os.getenv('DATABASE_PORT')
+#     }
+# }
 
 
 # Password validation
@@ -149,3 +157,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# from django_hosts.resolvers import reverse as host_reverse
+# LOGIN_URL = host_reverse('login', host='www')
+LOGIN_URL = '//www.djapp.com:8000/login/'
+
+
+SITE_ID = 1
